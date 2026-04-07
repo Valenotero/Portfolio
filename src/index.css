@@ -1,0 +1,161 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --color-bg: #07080d;
+  --color-surface: #0f1117;
+  --color-surface-2: #161922;
+  --color-border: #252a36;
+  --color-border-subtle: #1c2130;
+  --color-text: #eef0f4;
+  --color-muted: #8b92a8;
+  --color-accent: #5eead4;
+  --color-accent-dim: #2dd4bf33;
+  --color-violet: #a78bfa;
+  --color-violet-dim: #8b5cf633;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-display);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  color-scheme: dark;
+}
+
+::selection {
+  background-color: var(--color-accent-dim);
+  color: var(--color-text);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up 0.7s ease-out 0.1s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.7s ease-out 0.2s both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fade-up 0.7s ease-out 0.3s both;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--color-border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border-subtle) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
+}
+
+.glow-orb {
+  animation: pulse-glow 5s ease-in-out infinite;
+}
+
+/* Email: dos capas en la misma celda grid (sin desfase ni doble renglón) */
+.link-email {
+  display: inline-block;
+  padding-block: 0.15rem;
+  font-weight: 500;
+  text-decoration: none;
+  transform-origin: center center;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-email:hover {
+  transform: scale(1.1);
+}
+
+.link-email__stack {
+  display: inline-grid;
+  grid-template-columns: minmax(0, max-content);
+  grid-template-rows: auto;
+  vertical-align: bottom;
+}
+
+.link-email__base,
+.link-email__reveal {
+  grid-area: 1 / 1;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  font: inherit;
+  white-space: nowrap;
+}
+
+.link-email__base {
+  z-index: 0;
+  color: var(--color-muted);
+}
+
+.link-email__reveal {
+  z-index: 1;
+  min-width: 0;
+  width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  align-self: center;
+  justify-self: stretch;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-email:hover .link-email__reveal,
+.link-email:focus-visible .link-email__reveal {
+  width: 100%;
+}
+
+.link-email__reveal-text {
+  display: block;
+  width: max-content;
+  background-image: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    #2dd4bf 22%,
+    #5eead4 45%,
+    #7dd3fc 68%,
+    var(--color-violet) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.link-email:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+  transform: scale(1.1);
+}
