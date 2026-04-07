@@ -27,6 +27,8 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   color-scheme: dark;
+  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -97,6 +99,10 @@ body {
   transform: scale(1.1);
 }
 
+.link-email:active {
+  transform: scale(1.08);
+}
+
 .link-email__stack {
   display: inline-grid;
   grid-template-columns: minmax(0, max-content);
@@ -132,6 +138,8 @@ body {
 }
 
 .link-email:hover .link-email__reveal,
+.link-email:active .link-email__reveal,
+.link-email:focus .link-email__reveal,
 .link-email:focus-visible .link-email__reveal {
   width: 100%;
 }

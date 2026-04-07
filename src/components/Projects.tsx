@@ -15,12 +15,12 @@ export function Projects() {
           {projects.map((project) => (
             <li key={project.title} className="group relative">
               <div
-                className="from-accent/30 pointer-events-none absolute -inset-0.5 rounded-2xl bg-linear-to-br via-violet/10 to-transparent opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-100"
+                className="from-accent/30 pointer-events-none absolute -inset-0.5 rounded-2xl bg-linear-to-br via-violet/10 to-transparent opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100"
                 aria-hidden
               />
-              <div className="border-border bg-surface-2 relative flex flex-col overflow-hidden rounded-2xl border p-6 transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:border-accent/30 group-hover:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.55),0_0_0_1px_rgba(94,234,212,0.06)]">
+              <div className="border-border bg-surface-2 relative flex flex-col overflow-hidden rounded-2xl border p-6 transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:border-accent/30 group-hover:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.55),0_0_0_1px_rgba(94,234,212,0.06)] group-focus-within:-translate-y-1.5 group-focus-within:border-accent/30 group-focus-within:shadow-[0_24px_48px_-20px_rgba(0,0,0,0.55),0_0_0_1px_rgba(94,234,212,0.06)]">
                 <div
-                  className="via-accent/70 absolute top-0 right-8 left-8 h-px bg-linear-to-r from-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  className="via-accent/70 absolute top-0 right-8 left-8 h-px bg-linear-to-r from-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
                   aria-hidden
                 />
                 <h3 className="text-text text-lg font-semibold tracking-tight">
@@ -32,7 +32,7 @@ export function Projects() {
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
                     <li key={tech}>
-                      <span className="text-muted border-border group-hover:border-accent/20 inline-flex rounded-md border bg-bg/40 px-2 py-0.5 font-mono text-xs transition-colors duration-300">
+                      <span className="text-muted border-border group-hover:border-accent/20 group-focus-within:border-accent/20 inline-flex rounded-md border bg-bg/40 px-2 py-0.5 font-mono text-xs transition-colors duration-300">
                         {tech}
                       </span>
                     </li>

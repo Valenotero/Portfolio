@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { profile } from '../data/portfolio'
 
 const nav = [
   { href: '#sobre-mi', label: 'Sobre mí' },
@@ -41,10 +42,20 @@ export function Header() {
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-4 md:px-8">
         <a
           href="#inicio"
-          className="text-muted hover:text-accent font-mono text-sm tracking-tight transition-colors"
+          className="text-muted hover:text-accent flex items-center gap-2 font-mono text-sm tracking-tight transition-colors"
           onClick={() => setMenuOpen(false)}
         >
-          &lt;dev /&gt;
+          {profile.photoSrc ? (
+            <img
+              src={profile.photoSrc}
+              alt=""
+              width={28}
+              height={28}
+              decoding="async"
+              className="border-border size-7 rounded-full border object-cover"
+            />
+          ) : null}
+          <span>&lt;dev /&gt;</span>
         </a>
         <nav
           className="hidden items-center gap-8 md:flex"

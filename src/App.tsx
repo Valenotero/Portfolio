@@ -8,7 +8,7 @@ import { Skills } from './components/Skills'
 
 function App() {
   return (
-    <div className="bg-bg min-h-svh">
+    <div className="bg-bg min-h-svh overflow-x-hidden">
       <Header />
       <main>
         <Hero />
